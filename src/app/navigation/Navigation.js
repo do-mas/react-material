@@ -1,9 +1,8 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,11 +11,14 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
+import Dashboard from "../Dashboard";
+import Member from "../Member";
+import Teacher from "../Teacher";
+import Studio from "../Studio";
 
 const drawerWidth = 240;
 
@@ -68,15 +70,21 @@ class ResponsiveDrawer extends React.Component {
             <div>
                 <div className={classes.toolbar}/>
                 <List>
-                    <ListItem button key="dashboard">
-                        <Link to="/dashboard">Dashboard</Link>
-                    </ListItem>
-                    <ListItem button key="dashboard2">
-                        <Link to="/dashboard2">Dashboard2</Link>
-                    </ListItem>
-                    <ListItem button component={Link}  to="/dashboard2" key="dashboard3">
+                    <ListItem button component={Link}  to="/dashboard" key="dashboard">
                         <ListItemIcon><InboxIcon /></ListItemIcon>
-                        <ListItemText primary="Dashboard3" />
+                        <ListItemText primary="Dashboard" />
+                    </ListItem>
+                    <ListItem button component={Link}  to="/studio" key="studio">
+                        <ListItemIcon><InboxIcon /></ListItemIcon>
+                        <ListItemText primary="Studio" />
+                    </ListItem>
+                    <ListItem button component={Link}  to="/teacher" key="teacher">
+                        <ListItemIcon><InboxIcon /></ListItemIcon>
+                        <ListItemText primary="Teacher" />
+                    </ListItem>
+                    <ListItem button component={Link}  to="/member" key="member">
+                        <ListItemIcon><InboxIcon /></ListItemIcon>
+                        <ListItemText primary="Member" />
                     </ListItem>
                 </List>
             </div>
@@ -130,9 +138,10 @@ class ResponsiveDrawer extends React.Component {
                     </nav>
                     <main className={classes.content}>
                         <div className={classes.toolbar}/>
-                        <Route path="/dashboard" component={Dashboard1}/>
-                        <Route path="/dashboard2" component={Dashboard2}/>
-                        <Route path="/dashboard3" component={Dashboard3}/>
+                        <Route path="/dashboard" component={Dashboard}/>
+                        <Route path="/studio" component={Studio}/>
+                        <Route path="/teacher" component={Teacher}/>
+                        <Route path="/member" component={Member}/>
                     </main>
                 </div>
             </Router>
@@ -142,26 +151,9 @@ class ResponsiveDrawer extends React.Component {
 
 ResponsiveDrawer.propTypes = {
     classes: PropTypes.object.isRequired,
-    // Injected by the documentation to work in an iframe.
-    // You won't need it on your project.
     container: PropTypes.object,
     theme: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, {withTheme: true})(ResponsiveDrawer);
 
-const Dashboard1 = () => (
-    <div>
-        <h2>Dashboard 1</h2>
-    </div>
-);
-const Dashboard2 = () => (
-    <div>
-        <h2>Dashboard 2</h2>
-    </div>
-);
-const Dashboard3 = () => (
-    <div>
-        <h2>Dashboard 3</h2>
-    </div>
-);

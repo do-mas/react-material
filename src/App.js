@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Navigation from './app/Navigation';
+import Navigation from './app/navigation/Navigation';
 import firebase from './firebase';
-import Drawer from "./app/Drawer";
 
 class App extends Component {
   state = {
