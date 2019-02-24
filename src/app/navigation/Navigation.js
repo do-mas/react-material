@@ -105,7 +105,7 @@ class ResponsiveDrawer extends React.Component {
                                 <MenuIcon/>
                             </IconButton>
                             <Typography variant="h6" color="inherit" noWrap>
-                                Responsive drawer
+                                React - Material UI template
                             </Typography>
                         </Toolbar>
                     </AppBar>
